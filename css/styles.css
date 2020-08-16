@@ -40,6 +40,9 @@ h2 {
   font-size: 3em;
   color: #fff;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 p {
   line-height: 1.6em;
@@ -70,6 +73,7 @@ section {
   padding-left: 0;
   margin: 0;
   text-align: right;
+  display: flex;
 }
 
 .navbar__menu li {
@@ -88,7 +92,10 @@ section {
   color: #fff;
   transition: ease 0.3s all;
 }
-
+.menu-active {
+  color: red !important;
+  background: black !important;
+}
 /* Header Styles */
 .page__header {
   background: #fff;
