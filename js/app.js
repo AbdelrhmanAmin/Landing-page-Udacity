@@ -32,10 +32,8 @@ window.onscroll = () => {
     document.body.scrollTop > 250 ||
     document.documentElement.scrollTop > 250
   ) {
-    nav.style.display = "none";
     btn.style.display = "block";
   } else {
-    nav.style.display = "block";
     btn.style.display = "none";
   }
 };
@@ -58,7 +56,9 @@ clicker = (e) => {
   e.preventDefault();
   let item = document.getElementById(e.target.dataset.nav);
   item.classList.add("your-active-class");
-  item.scrollIntoView();
+  item.scrollIntoView({
+    behavior: "smooth",
+  });
 };
 
 //test which section should be highlighted using .getBoundingClientRect();
@@ -68,7 +68,8 @@ clicker = (e) => {
 */
 isInViewport = () => {
   let currentElem = sections[0]; // highlight first section on default
-  let top = 500;
+  let top = 400;
+  let navMenu = Array.from(document.querySelectorAll(".menu__link"));
   for (item of sections) {
     let rect = item.getBoundingClientRect();
     //returns the size of an element and its position relative to the viewport.
@@ -80,6 +81,13 @@ isInViewport = () => {
   }
   //highlight the section on the viewport and disable the rest of sections
   //usung classList methods to change the CSS
+  for (let item of navMenu) {
+    if (item.dataset.nav == currentElem.id) {
+      item.classList.add("menu-active");
+    } else {
+      item.classList.remove("menu-active");
+    }
+  }
   currentElem.classList.add("your-active-class");
   for (item of sections) {
     if (item.id != currentElem.id) {
