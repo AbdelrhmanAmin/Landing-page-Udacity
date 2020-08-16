@@ -72,7 +72,7 @@ clicker = (e) => {
 */
 isInViewport = () => {
   let currentElem = sections[0]; // highlight first section on default
-  let top = 400;
+  let top = 500;
   let navMenu = Array.from(document.querySelectorAll(".menu__link"));
   for (item of sections) {
     let rect = item.getBoundingClientRect();
