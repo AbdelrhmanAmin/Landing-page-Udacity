@@ -62,6 +62,8 @@ clicker = (e) => {
   item.classList.add("your-active-class");
   item.scrollIntoView({
     behavior: "smooth",
+    block: "end",
+    inline: "nearest",
   });
 };
 
